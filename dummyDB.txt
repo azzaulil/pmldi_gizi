@@ -1,0 +1,32 @@
+$user = new User
+$user->name = "Test"
+$user->email = "test@admin.com"
+$user->password = bcrypt('1234')
+$user->role = 'admin'
+$user->save()
+$user = new User
+$user->name = "Test2"
+$user->email = "test2@admin.com"
+$user->password = bcrypt('1234')
+$user->role = 'user'
+$user->save()
+$kantin = new App\Models\Kantin
+$kantin->nama_kantin = 'IKM A'
+$kantin->save()
+$makanan = new App\Models\Makanan
+$makanan->nama_makanan = 'Ayam Goreng'
+$makanan->harga = 'Rp10.000'
+$makanan->porsi = 100
+$makanan->label = 'baik'
+$makanan->foto_makanan = 'foto1.jpg'
+$makanan->id_kantin = 1
+$makanan->save()
+$nutrisi = new App\Models\Nutrisi
+$nutrisi->nama_nutrisi = 'Protein'
+$nutrisi->satuan = 'gram'
+$nutrisi->save()
+$nutrisi_makanan = new App\Models\NutrisiMakanan
+$nutrisi_makanan->nilai_nutrisi = 80
+$nutrisi_makanan->id_makanan = 1
+$nutrisi_makanan->id_nutrisi = 1
+$nutrisi_makanan->save()
